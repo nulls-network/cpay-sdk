@@ -1,0 +1,29 @@
+{
+  "name": "@nulls-network/cpay-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "td": "npx -p typescript tsc  --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "createOrder": "node ./test/createOrder.js",
+    "getOrderStatus": "node ./test/getOrderStatus.js",
+    "getBalance": "node ./test/getBalance.js",
+    "withdraw": "node ./test/withdraw.js",
+    "getWithdrawResult": "node ./test/getWithdrawResult.js",
+    "merchantBingAddress": "node ./test/merchantBingAddress.js"
+  },
+  "keywords": [],
+  "author": {
+    "name": "adam",
+    "email": "ch512006634@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nulls-network/cpay-sdk.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "ethers": "^5.6.4"
+  }
+}
