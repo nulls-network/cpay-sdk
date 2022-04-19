@@ -32,11 +32,9 @@ const url = '/v1/order/create'
  * @param {string} info.pay_token 支付币种
  * @param {string} info.pay_amount 支付金额
  * @param {string} info.notify 回调通知
- * @param {string} publicKey - 签名者的公钥
- * @param {string} privateKey - 签名者的私钥
  * @return {Promise<OrderResponse>}
  */
-async function createOrder(info, publicKey, privateKey) {
+async function createOrder(info) {
     try {
         const sign = await doSign(
             [
@@ -46,11 +44,11 @@ async function createOrder(info, publicKey, privateKey) {
                 info.pay_amount,
                 info.notify
             ],
-            privateKey)
+            this.privateKey)
         return (await axiosIns.post(url, {
             ...info,
             signature: sign,
-            pub_key: publicKey
+            pub_key: this.publicKey
         })).data
     } catch (error) {
         throw error

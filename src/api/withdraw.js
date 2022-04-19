@@ -30,10 +30,9 @@ const url = '/v1/merchant/doWithdraw'
 
 /**
  * @param {WithdrawParams} info
- * @param {string} privateKey
  * @return {Promise<WithdrawResponse>}
  */
-async function doWithdraw(info, privateKey) {
+async function doWithdraw(info) {
     try {
         const sign = await doSign(
             [
@@ -44,7 +43,7 @@ async function doWithdraw(info, privateKey) {
                 info.toChain,
                 info.uuid,
             ],
-            privateKey)
+            this.privateKey)
         return (await axiosIns.post(url, {
             ...info,
             signature: sign,

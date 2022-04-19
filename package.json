@@ -1,6 +1,6 @@
 {
-  "name": "@nulls-network/cpay-sdk",
-  "version": "1.0.1",
+  "name": "@cpay-network/cpay-sdk",
+  "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
   "scripts": {

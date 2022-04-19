@@ -1,18 +1,24 @@
 ## 安装
 ```
-npm install @nulls-network/cpay-sdk
+npm install @cpay-network/cpay-sdk
 ```
 
 ## 使用
 ```javascript
-const Cpay = require('@nulls-network/cpay-sdk')
+const Cpay = require('@cpay-network/cpay-sdk')
 
-async function test(){
-    let uuid = "282ec47e-fed4-47de-ac6c-b3c8e3ae20bd"
-    let result = await Cpay.getOrderStatus(uuid)
+async function test() {
+    let publicKey = '0x2143d11B31b319C008F59c2D967eBF0E5ad2791d'
+    let privateKey = 'f78494eb224f875d7e352a2b017304e11e6a3ce94af57b373ae82a73b3496cdd'
+    const cpay = new Cpay(publicKey,privateKey)
+
+    const uuid = 'b6687df7-27f5-4771-bdaf-7f532e749ed2'
+    let result = await cpay.getOrderStatus(uuid)
     console.log(result)
 }
+
 test()
+
 ```
 
 #### 更多使用方法请查看 /test 文件夹

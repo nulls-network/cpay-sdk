@@ -30,10 +30,9 @@ const url = 'v1/bing/merchantBingAddress'
 
 /**
  * @param {BindAddressParams} info
- * @param {string} privateKey
  * @return {Promise<MerchantBindResponse>}
  */
-async function merchantBingAddress(info, privateKey) {
+async function merchantBingAddress(info) {
     const sign = await doSign(
         [
             info.merchant_address,
@@ -41,7 +40,7 @@ async function merchantBingAddress(info, privateKey) {
             info.notify,
             info.chain_name
         ],
-        privateKey
+        this.privateKey
     );
     return (await axiosIns.post(url,{
         ...info,
